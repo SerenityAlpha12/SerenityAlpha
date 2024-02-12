@@ -1,0 +1,258 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+
+
+header h1 {
+    font: 50px;
+    color: #12706D;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 3%;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.navlinks {
+    list-style: none;
+    margin-right: 100px;
+}
+
+.navlinks li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.navlinks li a {
+    transition: all 0.3s ease 0s;
+    color: #12706D;
+}
+
+.navlinks li a:hover {
+    color: #0088a9;
+}
+
+button {
+    padding: 9px 25px;
+    background-color: #12706D;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    color: #ffffff;
+}
+
+button:hover {
+    background-color: rgba(0,136,169,0.8);
+}
+
+main {
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  main h2 {
+    order: 1;
+    font-size: 20px;
+    color: #12706D;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-bottom: 10px; /* Add space below h2 */
+  }
+
+  main h1 {
+    order: 2;
+    color: #12706D;
+    margin: 0;
+    font-weight: bold;
+    font-size: 52px;
+    white-space: pre-line; /* Preserve line breaks */
+    margin: 10px 0; /* Add space above and below h1 */
+}
+
+  main button {
+    order: 3;
+    margin-top: 10px; /* Add space above button */
+  }
+
+  main p {
+    order: 4;
+    margin: 0;
+    font-size: 16px;
+    color: #12706D;
+    margin-top: 20px; /* Add space above p */
+    margin-bottom: 10px; /* Add space below p */
+  }
+
+  main span {
+    color: #53ACAC;
+  }
+
+  .aboutus {
+    position: relative;
+    text-align: center;
+  }
+  
+  .aboutusbg {
+    margin-top: 150px;
+    width: 100%; /* Use 100% width to cover the entire section */
+    height: 120vh; /* Use viewport height for full screen height */
+    background-size: cover; /* Ensure the background image covers the entire section */
+    background-position: center center; /* Center the background image */
+  }
+
+  
+  .logoimg {
+    position: absolute;
+    top: 21%; /* Position at the vertical center */
+    left: 50%; /* Position at the horizontal center */
+    transform: translate(-50%, -50%); /* Center the element precisely */
+    width: 400px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  .aboutus h1 {
+    position: absolute;
+    top: 60%; /* Position at the vertical center */
+    left: 25%; /* Position at the horizontal center */
+    transform: translate(-50%, -50%); /* Center the element precisely */
+    width: 600px;
+    height: 372px;
+    margin: 20px auto; /* Center the heading horizontally */
+    font-size: 35px;
+    color: #12706D;
+  }
+  
+  .aboutusimg1,
+  .aboutusimg2 {
+    width: 580px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  .aboutusimg1 {
+    position: absolute;
+    top: 150%; /* Position at the vertical center */
+    right: -17%;
+    transform: translate(-50%, -50%); /* Center the element precisely */
+  }
+  
+  .aboutusimg2 {
+    position: absolute;
+    top: 180%; /* Position at the vertical center */
+    left: 25%; /* Position at the horizontal center */
+    transform: translate(-50%, -50%); /* Center the element precisely */
+  }
+
+  .testimonials h1 {
+    margin-top: 220px;
+    font-size: 52px;
+  }
+
+
+  .swiper {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    background-color: #81CAC8;
+    width: 90%;
+    height: 200px;
+  }
+
+  .swiper-slide span{
+    font-size: 50px;
+    color: #12706D;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 255, 255);
+  }
+
+  .swiper-wrapper {
+    margin-top: 30px;
+  }
+
+
+/* Change color of Swiper button and pagination to red */
+.swiper-button-next, .swiper-button-prev {
+    color: #12706D !important;
+    margin: 30px;
+  }
+  
+  .swiper-pagination-bullet {
+    background-color: #12706D !important;
+  }
+  
+  /* Optional: Change active bullet color */
+  .swiper-pagination-bullet-active {
+    background-color: #12706D !important;
+  }
+
+
+  .servicescard {
+    display: flex;
+    flex-wrap: wrap;
+    background-image: url(../Images/BG2.png);
+}
+
+.card-container {
+    flex: 1;
+    margin: 60px;
+}
+
+.card {
+    margin-top: 130px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+    height: 600px;
+    width: 600px;
+    background-color: #12706D;
+    border-radius: 20px;
+    align-items: center;
+}
+
+.card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align content */
+}
+
+
+/* Adjust styles as needed */
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.card-description {
+    margin-top: 10px;
+}
+
+.card-cta button {
+    background-color: #53ACAC;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+}
