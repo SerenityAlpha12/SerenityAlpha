@@ -16,3 +16,4 @@ var swiper = new Swiper(".mySwiper", {
     var content = title.nextElementSibling;
     content.style.display = (content.style.display === 'block') ? 'none' : 'block';
   }
+

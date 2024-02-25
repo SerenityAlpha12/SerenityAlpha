@@ -132,7 +132,7 @@ height: 533px;
 position: absolute;
 left: 0;
 padding: 20px;
-top: 195%;
+top: 210%;
 
 }
 .aboutusimg2 img {
@@ -141,7 +141,7 @@ top: 195%;
   position: absolute;
   right: 0;
   padding: 20px;
-  top: 130%;
+  top: 140%;
 }
 
 
@@ -488,7 +488,9 @@ input[type="checkbox"]{
   box-sizing: border-box;
   margin-bottom: 10px;
   border-radius: 20px;
+  border: 1px solid #12706D;
   background-color: #81CAC8; 
+  opacity: 10%;
   font-weight: bold; /* Add this line to increase the font weight */
   font-size: 20px;
   color: #12706D;
@@ -511,7 +513,7 @@ input[type="checkbox"]{
 
 .getintouch input:focus,
 .getintouch textarea:focus {
-  outline: none;
+  outline: #12706D;
 }
 
 
@@ -601,4 +603,6 @@ footer .col .contact-details{
 footer .col .contact-details i{
   margin-right:15px;
 }
+
+
 
