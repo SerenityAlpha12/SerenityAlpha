@@ -10,3 +10,9 @@ var swiper = new Swiper(".mySwiper", {
     mousewheel: true,
     keyboard: true,
   });
+
+
+  function toggleAccordion(title) {
+    var content = title.nextElementSibling;
+    content.style.display = (content.style.display === 'block') ? 'none' : 'block';
+  }
