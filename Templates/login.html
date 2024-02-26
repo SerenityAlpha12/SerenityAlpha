@@ -25,11 +25,12 @@
             <div class="input-container">
                 <input type="password" id="password" name="password" class="password-input">
                 <label for="password">Password</label>
-                <div class="password-toggle" onclick="togglePasswordVisibility('password')">
+                <div class="password-toggle" onclick="togglePasswordVisibility('password', 'toggle-password')">
                     <i id="toggle-password" class="fa-solid fa-eye-slash"></i>
                 </div>
                 <i id="password-lock" class="fa-solid fa-lock"></i>
-            </div>            
+            </div>
+                    
             <div class="left">
                 <input type="checkbox"  id="check">
                 <label for="check"> Remember Me</label>
@@ -50,23 +51,5 @@
         </div>
     </div>
     <script src="./Storage/script.js" defer></script>
-    <script>
-        function togglePasswordVisibility(inputId) {
-const passwordInput = document.getElementById(inputId);
-const toggleIcon = document.getElementById('toggle-password');
-
-if (passwordInput.type === 'password') {
-   passwordInput.type = 'text';
-   toggleIcon.classList.add('fa-eye');
-   toggleIcon.classList.remove('fa-eye-slash');
-   passwordInput.focus(); // Set focus to the input when showing the password
-} else {
-   passwordInput.type = 'password';
-   toggleIcon.classList.add('fa-eye-slash');
-   toggleIcon.classList.remove('fa-eye');
-   passwordInput.focus(); // Set focus to the input when hiding the password
-}
-}
-    </script>
 </body>
 </html>

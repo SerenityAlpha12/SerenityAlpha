@@ -19,38 +19,21 @@ var swiper = new Swiper(".mySwiper", {
 
 
 
-function togglePasswordVisibility(inputId) {
-const passwordInput = document.getElementById(inputId);
-const toggleIcon = document.getElementById('toggle-password');
+  function togglePasswordVisibility(inputId, toggleIconId) {
+    const passwordInput = document.getElementById(inputId);
+    const toggleIcon = document.getElementById(toggleIconId);
 
-if (passwordInput.type === 'password') {
-   passwordInput.type = 'text';
-   toggleIcon.classList.add('fa-eye');
-   toggleIcon.classList.remove('fa-eye-slash');
-   passwordInput.focus(); // Set focus to the input when showing the password
-} else {
-   passwordInput.type = 'password';
-   toggleIcon.classList.add('fa-eye-slash');
-   toggleIcon.classList.remove('fa-eye');
-   passwordInput.focus(); // Set focus to the input when hiding the password
-}
-}
-
-function togglePasswordVisibility(inputId) {
-const passwordInput = document.getElementById(inputId);
-const toggleIcon = document.getElementById('toggle-password');
-
-if (passwordInput.type === 'confirmpassword') {
-   passwordInput.type = 'text';
-   toggleIcon.classList.add('fa-eye');
-   toggleIcon.classList.remove('fa-eye-slash');
-   passwordInput.focus(); // Set focus to the input when showing the password
-} else {
-   passwordInput.type = 'password';
-   toggleIcon.classList.add('fa-eye-slash');
-   toggleIcon.classList.remove('fa-eye');
-   passwordInput.focus(); // Set focus to the input when hiding the password
-}
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleIcon.classList.add('fa-eye');
+        toggleIcon.classList.remove('fa-eye-slash');
+        passwordInput.focus();
+    } else {
+        passwordInput.type = 'password';
+        toggleIcon.classList.add('fa-eye-slash');
+        toggleIcon.classList.remove('fa-eye');
+        passwordInput.focus();
+    }
 }
 
 

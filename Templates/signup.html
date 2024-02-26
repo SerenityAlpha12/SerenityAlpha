@@ -42,19 +42,20 @@
                 <div class="input-container">
                     <input type="password" id="password" name="password" class="password-input">
                     <label for="password">Password</label>
-                    <div class="password-toggle" onclick="togglePasswordVisibility('password')">
+                    <div class="password-toggle" onclick="togglePasswordVisibility('password', 'toggle-password')">
                         <i id="toggle-password" class="fa-solid fa-eye-slash"></i>
                     </div>
                     <i id="password-lock" class="fa-solid fa-lock"></i>
                 </div>
+                
                 <div class="input-container">
                     <input type="password" id="confirmpassword" name="confirmpassword" class="password-input">
                     <label for="confirmpassword">Confirm Password</label>
-                    <div class="password-toggle" onclick="togglePasswordVisibility('confirmpassword')">
-                        <i id="toggle-password" class="fa-solid fa-eye-slash"></i>
+                    <div class="password-toggle" onclick="togglePasswordVisibility('confirmpassword', 'toggle-confirm-password')">
+                        <i id="toggle-confirm-password" class="fa-solid fa-eye-slash"></i>
                     </div>
-                    <i id="password-lock" class="fa-solid fa-lock"></i>
-                </div>
+                    <i id="confirm-password-lock" class="fa-solid fa-lock"></i>
+                </div>                
                 <div class="left">
                     <input type="checkbox" id="check">
                     <label for="check"> Remember Me</label>
