@@ -59,7 +59,7 @@ a {
 
 .input-container {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 32px;
     width: 100%;
 }
 
@@ -80,6 +80,7 @@ a {
     height: 15px; /* Adjust the height as needed */
     margin-bottom: 10px;
 }
+
 
 
 /* Style for the label inside the input container */
@@ -143,6 +144,7 @@ input:focus {
 }
 
 button {
+    margin-top: 20px;
     padding: 10px 20px;
     background-color: #81CAC8;
     color: white;
@@ -157,7 +159,7 @@ button {
 .explore-home {
     color: #12706D;
     font-size: 20px;
-    margin-top: 60px;
+    margin-top: 40px;
 }
 
 .explore-home span {
@@ -176,17 +178,36 @@ button {
     flex-direction: row;
     justify-content: space-between;
     font-size: 17px;
-    margin-top: 10px;
 }
+
 .left{
-    display: flex;
-    font-size: 17px;
-    color: #12706D;
+    margin-top: -20px;
 }
+
 label a{
     color: #12706D;
     text-decoration: none;
 }
+
+.error {
+    position: absolute;
+    top: 125%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+.error-pw {
+    position: absolute;
+    top: 150%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+.error-message {
+    color: #ff0000; /* Red color for error messages */
+    font-size: 17px; /* Adjust font size as needed */
+}
+
+
 
 
 @media (min-width: 1280px) {

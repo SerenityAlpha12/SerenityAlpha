@@ -59,7 +59,7 @@ a {
 
 .input-container {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 35px;
     width: 100%;
 }
 
@@ -168,7 +168,7 @@ button {
     flex-direction: row;
     justify-content: space-between;
     font-size: 17px;
-    margin-top: 10px;
+    margin-top: -20px;
 }
 .left{
     display: flex;
@@ -178,6 +178,18 @@ button {
 label a{
     color: #12706D;
     text-decoration: none;
+}
+
+.error {
+    position: absolute;
+    top: 125%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+.error-message {
+    color: #ff0000; /* Red color for error messages */
+    font-size: 17px; /* Adjust font size as needed */
 }
 
 
@@ -202,3 +214,6 @@ label a{
         width: 100%; /* Full width for smaller screens */
     }
 }
+
+
+

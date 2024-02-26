@@ -1,55 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Assets/Style/login.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <script src="https://kit.fontawesome.com/7d399dc76b.js" crossorigin="anonymous"></script>
     <title>Login Account</title>
 </head>
+
 <body>
     <div class="container">
         <div class="createaccount">
             <img src="./Assets/Images/logo.png" alt="">
         </div>
         <div class="remaining">
-           <form action="">
-            <h1>Login <span>Account</span></h1>            
+            <form action="login.php" method="post">
+                <h1>Login <span>Account</span></h1>
 
-             <div class="input-container">
-                <input type="email" id="email" name="email">
-                <label for="email">Email</label>
-                <i  id="password-lock"  class="fa-solid fa-envelope"></i>
-            </div>
-            <div class="input-container">
-                <input type="password" id="password" name="password" class="password-input">
-                <label for="password">Password</label>
-                <div class="password-toggle" onclick="togglePasswordVisibility('password', 'toggle-password')">
-                    <i id="toggle-password" class="fa-solid fa-eye-slash"></i>
+                <div class="input-container">
+                    <input type="email" id="email" name="email" value="{{ values['email'] ?? '' }}">
+                    <label for="email">Email Address</label>
+                    <i id="password-lock" class="fa-solid fa-envelope"></i>
+                    <div class="error">
+                        <span class="error-message" id="error-email">{{ errors['email'] ?? '' }}</span>
+                    </div>
                 </div>
-                <i id="password-lock" class="fa-solid fa-lock"></i>
-            </div>
-                    
-            <div class="left">
-                <input type="checkbox"  id="check">
-                <label for="check"> Remember Me</label>
-            </div>
-            <div class="input-container">
-                <button type="submit">Sign In</button>
-            </div>
-            <div class="bottom">
+                <div class="input-container">
+                    <input type="password" id="password" name="password" class="password-input">
+                    <label for="password">Password</label>
+                    <div class="password-toggle" onclick="togglePasswordVisibility('password', 'toggle-password')">
+                        <i id="toggle-password" class="fa-solid fa-eye-slash"></i>
+                    </div>
+                    <i id="password-lock" class="fa-solid fa-lock"></i>
+                    <div class="error">
+                        <span class="error-message" id="error-password">{{ errors['login'] ?? '' }}</span>
+                    </div>
+                </div>
+
                 <div class="left">
-                    <label><a href="signup.php">Don't have an Account?<span>SignUp</span></a></label>
+                    <input type="checkbox" id="check">
+                    <label for="check"> Remember Me</label>
                 </div>
-                <div class="right">
-                    <label><a href="resetpassword.php">Forgot password?<span>Reset</span></a></label>
+                <div class="input-container">
+                    <button type="submit">Login</button>
                 </div>
-            </div>
-           </form>
-             <a href="index.php" class="explore-home">Explore Our Company? <span>Home</span></a>
+                <div class="bottom">
+                    <div class="left">
+                        <label><a href="signup.php">Don't have an Account?<span>SignUp</span></a></label>
+                    </div>
+                    <div class="right">
+                        <label><a href="resetpassword.php">Forgot password?<span>Reset</span></a></label>
+                    </div>
+                </div>
+            </form>
+            <a href="index.php" class="explore-home">Explore Our Company? <span>Home</span></a>
         </div>
     </div>
     <script src="./Storage/script.js" defer></script>
 </body>
+
 </html>

@@ -9,7 +9,6 @@
     <script src="https://kit.fontawesome.com/7d399dc76b.js" crossorigin="anonymous"></script>
     <title>Login Account</title>
 </head>
-
 <body>
     <div class="container">
         <div class="createaccount">
@@ -18,27 +17,46 @@
         <div class="remaining">
             <form action="signup.php" method="post">
                 <h1>SignUp <span>Account</span></h1>
+                <!-- First Name Field -->
                 <div class="input-container">
-                    <input type="text" id="firstname" name="firstname">
+                    <input type="text" id="firstname" name="firstname" value="{{ values['firstname'] ?? '' }}">
                     <label for="firstname">First Name</label>
                     <i id="password-lock" class="fa-solid fa-user"></i>
+                    <div class="error">
+                        <span class="error-message" id="error-firstname">{{ errors['firstname'] ?? '' }}</span>
+                    </div>
                 </div>
+                <!-- Last Name Field -->
                 <div class="input-container">
-                    <input type="text" id="lastname" name="lastname">
+                    <input type="text" id="lastname" name="lastname" value="{{ values['lastname'] ?? '' }}">
                     <label for="lastname">Last Name</label>
                     <i id="password-lock" class="fa-solid fa-user"></i>
+                    <div class="error">
+                        <span class="error-message" id="error-lastname">{{ errors['lastname'] ?? '' }}</span>
+                    </div>
                 </div>
+                <!-- Phone Number Field -->
                 <div class="input-container">
-                    <input type="text" id="phonenumber" name="phonenumber" pattern="[0-9#+*]+"
-                        title="Only numbers and the characters +, *, # are allowed" oninput="validatePhoneNumber(this)">
+                    <input type="text" id="phonenumber" name="phonenumber" pattern="[0-9#+*]+" title="Only numbers and the characters +, *, # are allowed"
+                        oninput="validatePhoneNumber(this)" value="{{ values['phonenumber'] ?? '' }}">
                     <label for="phonenumber">Phone Number</label>
                     <i id="password-lock" class="fa-solid fa-phone"></i>
+                    <div class="error">
+                        <span class="error-message" id="error-phonenumber">{{ errors['phonenumber'] ?? '' }}</span>
+                    </div>
                 </div>
+            
+                <!-- Email Address Field -->
                 <div class="input-container">
-                    <input type="email" id="email" name="email">
+                    <input type="email" id="email" name="email" value="{{ values['email'] ?? '' }}">
                     <label for="email">Email Address</label>
                     <i id="password-lock" class="fa-solid fa-envelope"></i>
+                    <div class="error">
+                        <span class="error-message" id="error-email">{{ errors['email'] ?? '' }}</span>
+                    </div>
                 </div>
+            
+                <!-- Password Field -->
                 <div class="input-container">
                     <input type="password" id="password" name="password" class="password-input">
                     <label for="password">Password</label>
@@ -47,7 +65,8 @@
                     </div>
                     <i id="password-lock" class="fa-solid fa-lock"></i>
                 </div>
-                
+            
+                <!-- Confirm Password Field -->
                 <div class="input-container">
                     <input type="password" id="confirmpassword" name="confirmpassword" class="password-input">
                     <label for="confirmpassword">Confirm Password</label>
@@ -55,26 +74,27 @@
                         <i id="toggle-confirm-password" class="fa-solid fa-eye-slash"></i>
                     </div>
                     <i id="confirm-password-lock" class="fa-solid fa-lock"></i>
-                </div>                
-                <div class="left">
-                    <input type="checkbox" id="check">
-                    <label for="check"> Remember Me</label>
+                    <div class="error-pw">
+                        <span class="error-message" id="error-password">{{ errors['password'] ?? '' }}</span>
+                        <span class="error-message" id="error-confirmpassword">{{ errors['confirmpassword'] ?? '' }}</span>
+                    </div>
                 </div>
+                <!-- Submit Button -->
                 <div class="input-container">
                     <button type="submit">Sign Up</button>
                 </div>
+                <!-- Login and Terms & Conditions Links -->
                 <div class="bottom">
                     <div class="left">
                         <label><a href="login.php">Already have an Account?<span>Login Now</span></a></label>
                     </div>
-                    <div class="right">
-                        <label><a href="resetpassword.php">Terms & Conditions</a></label>
-                    </div>
                 </div>
-            </form>
+            </form>            
+            <!-- Explore Home Link -->
             <a href="index.php" class="explore-home">Explore Our Company? <span>Home</span></a>
         </div>
     </div>
+    <!-- Script for Password Toggle and additional scripts if needed -->
     <script src="./Storage/script.js" defer></script>
 </body>
 </html>
