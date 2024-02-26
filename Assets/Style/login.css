@@ -3,7 +3,7 @@ body {
     padding: 0;
     height: 100vh;
     display: flex;
-    background-color: white;
+    background-color: #b1cecd;
     overflow-y: hidden;
 }
 
@@ -25,12 +25,18 @@ a {
     justify-content: center;
     align-items: center;
     position: relative;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .remaining {
     background-color: white;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
     height: 100%;
     width: 75%;
     position: absolute;
@@ -54,6 +60,7 @@ a {
 .input-container {
     position: relative;
     margin-bottom: 20px;
+    width: 100%;
 }
 
 /* Style for the email input */
@@ -94,6 +101,38 @@ a {
     color: #12706D;
 }
 
+input:focus {
+    outline: none; /* Remove the default focus outline */
+    border-color: #12706D; /* Set the desired focus color */
+    box-shadow: 0 0 5px #12706D; /* Optionally, add a box shadow for emphasis */
+}
+
+.password-input {
+    width:500px; /* Adjust the width as needed */
+    padding: 15px;
+    border: 1px solid #81CAC8;
+    border-radius: 5px;
+}
+
+/* Style for the toggle icon */
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 50px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.password-toggle i {
+    font-size: 20px;
+    color: #81CAC8;
+}
+
+#password-lock {
+    font-size: 20px;
+    color: #81CAC8;
+    margin-left: 10px;
+}
 
 button {
     padding: 10px 20px;
@@ -139,4 +178,27 @@ button {
 label a{
     color: #12706D;
     text-decoration: none;
+}
+
+
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1500px;
+        margin: 0 auto; /* Center the content on larger screens */
+    }
+
+    .input-container {
+        width: 100%; /* Adjust the width as needed for larger screens */
+    }
+}
+
+/* Media query for screens larger than 768px (adjust the value as needed) */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack elements vertically on smaller screens */
+    }
+
+    .input-container {
+        width: 100%; /* Full width for smaller screens */
+    }
 }

@@ -1,51 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Assets/Style/signup.css">
-    <title>Create Account</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="https://kit.fontawesome.com/7d399dc76b.js" crossorigin="anonymous"></script>
+    <title>Login Account</title>
 </head>
+
 <body>
     <div class="container">
         <div class="createaccount">
             <img src="./Assets/Images/logo.png" alt="">
         </div>
         <div class="remaining">
-            <h1>Create <span>Account</span></h1>
-            <div class="form-container">
+            <form action="signup.php" method="post">
+                <h1>SignUp <span>Account</span></h1>
                 <div class="input-container">
-                    <input type="text" id="firstName" name="firstName">
-                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstname" name="firstname">
+                    <label for="firstname">First Name</label>
+                    <i id="password-lock" class="fa-solid fa-user"></i>
                 </div>
                 <div class="input-container">
-                    <input type="text" id="lastName" name="lastName">
-                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastname" name="lastname">
+                    <label for="lastname">Last Name</label>
+                    <i id="password-lock" class="fa-solid fa-user"></i>
                 </div>
-            </div>
-            
-            <div class="input-container">
-                <input type="email" id="email" name="email">
-                <label for="email">Email</label>
-            </div>
-            <div class="input-container">
-                <input type="tel" id="phone" name="phone">
-                <label for="phone">Phone Number</label>
-            </div>
-            <div class="input-container">
-                <input type="password" id="password" name="password">
-                <label for="password">Password</label>
-            </div>
-            <div class="input-container">
-                <input type="password" id="confirmPassword" name="confirmPassword">
-                <label for="confirmPassword">Confirm Password</label>
-            </div>
-            <div class="input-container">
-                <button type="submit">Create Account</button>
-            </div>
-            <div class="login-link">Already have an account?<a href="login.php">Login</a></div>
-             <a href="index.php" class="explore-home">Explore Our Company? <span>Home</span></a>
+                <div class="input-container">
+                    <input type="text" id="phonenumber" name="phonenumber" pattern="[0-9#+*]+"
+                        title="Only numbers and the characters +, *, # are allowed" oninput="validatePhoneNumber(this)">
+                    <label for="phonenumber">Phone Number</label>
+                    <i id="password-lock" class="fa-solid fa-phone"></i>
+                </div>
+                <div class="input-container">
+                    <input type="email" id="email" name="email">
+                    <label for="email">Email Address</label>
+                    <i id="password-lock" class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="input-container">
+                    <input type="password" id="password" name="password" class="password-input">
+                    <label for="password">Password</label>
+                    <div class="password-toggle" onclick="togglePasswordVisibility('password')">
+                        <i id="toggle-password" class="fa-solid fa-eye-slash"></i>
+                    </div>
+                    <i id="password-lock" class="fa-solid fa-lock"></i>
+                </div>
+                <div class="input-container">
+                    <input type="password" id="confirmpassword" name="confirmpassword" class="password-input">
+                    <label for="confirmpassword">Confirm Password</label>
+                    <div class="password-toggle" onclick="togglePasswordVisibility('confirmpassword')">
+                        <i id="toggle-password" class="fa-solid fa-eye-slash"></i>
+                    </div>
+                    <i id="password-lock" class="fa-solid fa-lock"></i>
+                </div>
+                <div class="left">
+                    <input type="checkbox" id="check">
+                    <label for="check"> Remember Me</label>
+                </div>
+                <div class="input-container">
+                    <button type="submit">Sign Up</button>
+                </div>
+                <div class="bottom">
+                    <div class="left">
+                        <label><a href="login.php">Already have an Account?<span>Login Now</span></a></label>
+                    </div>
+                    <div class="right">
+                        <label><a href="resetpassword.php">Terms & Conditions</a></label>
+                    </div>
+                </div>
+            </form>
+            <a href="index.php" class="explore-home">Explore Our Company? <span>Home</span></a>
         </div>
     </div>
+    <script src="./Storage/script.js" defer></script>
 </body>
 </html>
