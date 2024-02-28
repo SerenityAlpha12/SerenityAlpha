@@ -101,6 +101,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         try {
             $stmt->execute();
             echo "User registered successfully!";
+            
+            // Redirect to login.php after successful signup
+            header("Location: login.php");
+            exit(); // Ensure that no further code is executed after the redirect
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }

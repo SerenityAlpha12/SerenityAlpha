@@ -37,12 +37,16 @@
                     <div class="error">
                         <span class="error-message" id="error-password">{{ errors['login'] ?? '' }}</span>
                     </div>
+                    <div class="error">
+                        <span class="error-message" id="error-password">{{ errors['password'] ?? '' }}</span>
+                    </div>
                 </div>
 
                 <div class="left">
-                    <input type="checkbox" id="check">
+                    <input type="checkbox" id="check" name="rememberMe">
                     <label for="check"> Remember Me</label>
                 </div>
+                
                 <div class="input-container">
                     <button type="submit">Login</button>
                 </div>

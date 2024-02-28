@@ -1,0 +1,225 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    background-color: #b1cecd;
+    overflow-y: hidden;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+
+.createaccount {
+    background-color: #81CAC8;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.remaining {
+    background-color: white;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    height: 100%;
+    width: 75%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.createaccount img {
+    max-width: 100%;
+    z-index: 1;
+    position: absolute;
+    top: 20%;
+    right: 57%;
+}
+
+
+.input-container {
+    position: relative;
+    margin-bottom: 32px;
+    width: 100%;
+}
+
+/* Style for the email input */
+.input-container input[type="number"] {
+    width:500px; /* Adjust the width as needed */
+    padding: 15px;
+    border: 1px solid #81CAC8;
+    border-radius: 5px;
+}
+
+.left input[type="checkbox"] {
+    margin-right: 10px; /* Increased margin for better spacing */
+    width: 20px; /* Adjust the width as needed */
+    height: 15px; /* Adjust the height as needed */
+    margin-bottom: 10px;
+}
+
+
+
+/* Style for the label inside the input container */
+.input-container label {
+    position: absolute;
+    top: -10px; /* Adjust the position to move above the border line */
+    left: 10px;
+    background-color: white; /* Add white background color */
+    padding: 0 5px;
+    color: #81CAC8;
+    pointer-events: none;
+    transition: 0.3s;
+    font-size: 14px; /* Adjust the font size as needed */
+}
+
+/* Style for the label when the input is focused or not empty */
+.input-container input:focus + label,
+.input-container input:not(:placeholder-shown) + label {
+    top: -10px; /* Adjust the position to move above the border line */
+    font-size: 20px; /* Adjust the font size as needed */
+    color: #12706D;
+}
+
+input:focus {
+    outline: none; /* Remove the default focus outline */
+    border-color: #12706D; /* Set the desired focus color */
+    box-shadow: 0 0 5px #12706D; /* Optionally, add a box shadow for emphasis */
+}
+
+.password-input {
+    width:500px; /* Adjust the width as needed */
+    padding: 15px;
+    border: 1px solid #81CAC8;
+    border-radius: 5px;
+}
+
+/* Style for the toggle icon */
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 50px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.password-toggle i {
+    font-size: 20px;
+    color: #81CAC8;
+}
+
+#password-lock {
+    font-size: 20px;
+    color: #81CAC8;
+    margin-left: 10px;
+}
+
+#confirm-password-lock {
+    font-size: 20px;
+    color: #81CAC8;
+    margin-left: 10px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #81CAC8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 2;
+    font-size: 20px;
+    width: 100%;
+}
+
+.explore-home {
+    color: #12706D;
+    font-size: 20px;
+    margin-top: 40px;
+}
+
+.explore-home span {
+    color: rgba(83, 172, 172, 1);
+}
+.remaining h1 {
+    color: rgba(18, 112, 109, 1);
+    font-size: 50px;
+}
+.remaining h1 span {
+    color: rgba(83, 172, 172, 1);
+}
+
+.bottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 17px;
+}
+
+.left{
+    margin-top: -20px;
+}
+
+label a{
+    color: #12706D;
+    text-decoration: none;
+}
+
+.error {
+    position: absolute;
+    top: 125%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+
+.error-message {
+    color: #ff0000; /* Red color for error messages */
+    font-size: 17px; /* Adjust font size as needed */
+}
+
+
+
+
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1500px;
+        margin: 0 auto; /* Center the content on larger screens */
+    }
+
+    .input-container {
+        width: 100%; /* Adjust the width as needed for larger screens */
+    }
+}
+
+/* Media query for screens larger than 768px (adjust the value as needed) */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack elements vertically on smaller screens */
+    }
+
+    .input-container {
+        width: 100%; /* Full width for smaller screens */
+    }
+}

@@ -17,18 +17,22 @@ try {
 } catch (PDOException $e) {
     die("Connection failed: " . $e->getMessage());
 }
-
 // User login
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Extracting form data
     $email = $_POST["email"];
     $password = $_POST["password"];
+    $rememberMe = isset($_POST["rememberMe"]) && $_POST["rememberMe"] == 'on';
 
     // Validation for Email Address
     if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errors['email'] = "Please provide a valid email address.";
     }
 
+    // Validation for Password
+    if (empty($password)) {
+        $errors['password'] = "Password is required.";
+    }
 
     // If there are no errors, proceed with user authentication
     if (empty($errors)) {
@@ -42,6 +46,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($user && password_verify($password, $user['password'])) {
+                // Set cookie if "Remember Me" is checked
+                if ($rememberMe) {
+                    setcookie('remembered_email', $email, time() + (30 * 24 * 60 * 60)); // 30 days expiration
+                } else {
+                    // Clear the cookie if "Remember Me" is not checked
+                    setcookie('remembered_email', '', time() - 3600);
+                }
+
                 // Redirect to index.php upon successful login
                 header("Location: index.php");
                 exit();
@@ -54,15 +66,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-// Close the connection
-$conn = null;
+// Check if the cookie exists and pre-fill the email input field
+$rememberedEmail = isset($_COOKIE['remembered_email']) ? $_COOKIE['remembered_email'] : '';
 
 // Load and display the main template
 $template = $twig->load('login.html');
 echo $template->render([
     'errors' => $errors, // Pass errors to the template
     'values' => [
-        'email' => isset($email) ? $email : '',
+        'email' => isset($email) ? $email : $rememberedEmail,
     ],
 ]);
-?>
