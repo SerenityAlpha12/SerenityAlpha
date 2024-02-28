@@ -1,0 +1,635 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #b1cecd;
+    overflow-y: hidden;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+
+.createaccount {
+    background-color: #81CAC8;
+    flex: 1;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.card {
+    background-color: rgba(18, 112, 109, 0.2);
+    display: flex;
+    gap: 20px; /* Adjust the gap between user details and info cards */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    position: absolute;
+    left: 1%;
+    top: 2%;
+    z-index: 1;
+
+}
+
+
+.user-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.fa-solid {
+    font-size: 30px;
+    color: #81CAC8;
+    margin-top: 5px;
+}
+
+
+
+
+.user-details {
+    padding: 20px;
+    text-align: center;
+}
+
+.user-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.user-age {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.info-cards-container {
+    display: flex;
+    gap: 15px; /* Adjust the gap between info cards */
+}
+
+
+.info-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    background-color: #12706D;
+    width: 70px;
+    height: 80px;
+    border-radius: 10%;
+    color: #fff;
+}
+
+.info-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.info-details p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+
+
+.calendar {
+    background-color: rgba(18, 112, 109, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1;
+    position: absolute;
+    left: 1%;
+    bottom: 1%;
+    width: 400px;
+    height: 410px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#current-month {
+    width: 200px; /* Adjust the width as needed */
+    color: #fff;
+    margin-left: 8px;
+}
+
+#navigate{
+    font-size: 30px;
+    color: #81CAC8;
+    margin-left: 100px;
+    width: 30px;
+    height: 30px;
+}
+
+#navigate1{
+    font-size: 30px;
+    color: #81CAC8;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+
+.calendar-days {
+    display: flex;
+    justify-content: space-between;
+    background-color: #1a8c88; /* Lighter color */
+    padding: 5px;
+    color: #fff;
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+
+
+.calendar-dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    color: #fff;
+}
+
+.date {
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.current-date {
+    background-color: #81CAC8; /* Darker color for the current date */
+    color: #fff;
+}
+
+.calendar-button {
+    position: absolute;
+    bottom: -1%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #1a8c88;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #fff;
+}
+
+
+.remaining {
+    background-color: white;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    height: 100%;
+    width: 70%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+
+
+.dashboard-card {
+    width: 100%;
+    max-width: 900px;
+    margin: 90px auto;
+    padding: 20px;
+    background-color: rgba(129, 202, 200, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    height: 120px; /* Adjust the height as needed */
+}
+
+.card-content {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.greeting {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: -70px;
+}
+
+.message {
+    font-size: 19px;
+    color: #555;
+    margin-top: 20px;
+}
+
+.view-history {
+    position: absolute;
+    bottom: 10px;
+    left: 23px;
+    display: flex;
+    align-items: center;
+}
+
+.history-link {
+    text-decoration: none;
+    margin-right: 5px;
+    color: #fff;
+    font-size: 21px;
+}
+
+.arrow-icon {
+    font-size: 14px;
+}
+
+.logo-img {
+    max-width: 350px;
+    max-height: 350px;
+    border-radius: 50%;
+}
+
+.notification {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.fa-solid.fa-circle {
+    font-size: 15px;
+    color: #ff0000;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.chat-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    height: 420px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.chat-header {
+    background-color: rgba(129, 202, 200, 0.8);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.chat-messages {
+    height: 300px;
+    overflow-y: scroll;
+    padding: 10px;
+}
+
+.message-input {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.message-input input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.send-button {
+    margin-left: 8px;
+    padding: 8px;
+    background-color: rgba(129, 202, 200, 0.8);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.sent-message {
+    background-color: rgba(129, 202, 200, 0.8);
+    color: #fff;
+    padding: 8px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    align-self: flex-end;
+}
+
+.box-container {
+    background-color: rgba(129, 202, 200, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    height: 420px;
+    width: 570px;
+    bottom: 20px;
+    right: 28%;
+}
+
+.box {
+    text-align: center;
+    background-color: rgba(92, 167, 165, 0.8);
+    width: 400px;
+    height: 300px;
+    margin: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.box1 {
+    text-align: center;
+    background-color: rgba(92, 167, 165, 0.8);
+    width: 400px;
+    height: 300px;
+    margin: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.box2 {
+    text-align: center;
+    background-color: rgba(92, 167, 165, 0.8);
+    width: 400px;
+    height: 300px;
+    margin: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.box i {
+    font-size: 90px;
+    color: #12706D;
+    margin-top: 20px;
+}
+
+.box1 i {
+    font-size: 90px;
+    color: #12706D;
+    margin-top: 20px;
+}
+
+.box2 i {
+    font-size: 90px;
+    color: #12706D;
+    margin-top: 20px;
+}
+
+.box p {
+    margin: 120px 0 0;
+    color: #fff;
+    font-size: 30px;
+}
+.box1 p {
+    margin: 120px 0 0;
+    color: #fff;
+    font-size: 30px;
+}
+.box2 p {
+    margin: 120px 0 0;
+    color: #fff;
+    font-size: 30px;
+}
+
+
+/* Add this CSS to your userdashboard.css or create a new CSS file */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #12706D;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+}
+
+.modal-content h2 {
+    text-align: center;
+    font-size: 30px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#scheduleContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.schedule-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.schedule-card {
+    display: flex;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 500px;
+
+}
+
+.schedule-left {
+    width: 10%;
+    background: #ff5555; /* Red background color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.schedule-left i {
+    color: #fff; /* Icon color */
+}
+
+.schedule-right {
+    width: 90%;
+    padding: 10px;
+}
+
+.schedule-time {
+    font-weight: bold;
+}
+
+
+.schedule-description {
+    flex: 1;
+}
+
+.fa-solid.fa-ellipsis-vertical {
+    font-size: 30px;
+    color: #ff5555;
+    cursor: pointer;
+    margin-right: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+/* Add this CSS to your userdashboard.css or create a new CSS file */
+
+.profile-modal-container #modal-profile {
+    display: none;
+}
+
+.profile-modal-container .modal-content.profile-modal {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.profile-modal-container .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.profile-modal-container .close:hover,
+.profile-modal-container .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.profile-modal-container h2 {
+    margin-bottom: 20px;
+}
+
+.profile-modal-container .profile-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-modal-container label {
+    margin-bottom: 5px;
+}
+
+.profile-modal-container input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.profile-modal-container button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.profile-modal-container button:hover {
+    background-color: #45a049;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1500px;
+        margin: 0 auto; /* Center the content on larger screens */
+    }
+
+    .input-container {
+        width: 100%; /* Adjust the width as needed for larger screens */
+    }
+    
+}
+
+/* Media query for screens larger than 768px (adjust the value as needed) */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack elements vertically on smaller screens */
+    }
+
+    .input-container {
+        width: 100%; /* Full width for smaller screens */
+    }
+}
+

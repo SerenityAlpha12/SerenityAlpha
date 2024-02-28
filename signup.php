@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+if (isset($_SESSION['user_id'])) {
+    header("Location: userdashboard.php");
+    exit();
+}
+
+
 require_once 'vendor/autoload.php';
 require 'db/config.php';
 
@@ -76,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } elseif (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/', $_POST["password"])) {
         $errors['password'] = "Password must contain at least one lowercase letter, one uppercase letter, and one digit.";
     }elseif (!password_verify($confirmPassword, $password)) {
-        $errors['confirmpassword'] = "Passwords do not match.";
+        $errors['password'] = "Passwords do not match.";
     }
 
   

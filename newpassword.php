@@ -1,9 +1,17 @@
 <?php
+session_start();
+
 require_once 'vendor/autoload.php';
 require 'db/config.php';
 
 $loader = new \Twig\Loader\FilesystemLoader('Templates');
 $twig = new \Twig\Environment($loader);
+
+if (isset($_SESSION['user_id'])) {
+    header("Location: userdashboard.php");
+    exit();
+}
+
 
 // Define an array to store error messages
 $errors = [];
@@ -43,6 +51,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors['password'] = "Passwords do not match.";
     }
 
+     // Check if the new password is the same as the old password
+     $sqlCheckPassword = "SELECT password FROM users WHERE email = :email";
+     $stmtCheckPassword = $conn->prepare($sqlCheckPassword);
+     $stmtCheckPassword->bindParam(':email', $email);
+     $stmtCheckPassword->execute();
+     $oldPasswordHash = $stmtCheckPassword->fetchColumn();
+ 
+     if (password_verify($password, $oldPasswordHash)) {
+         $errors['password'] = "Sorry, you can't use the old password as the new password.";
+     }
+ 
     
     // If no errors, update the password in the database
     if (empty($errors)) {

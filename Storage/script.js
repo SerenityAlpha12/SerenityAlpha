@@ -41,3 +41,5 @@ function validatePhoneNumber(input) {
   // Remove any non-numeric or non-special characters
   input.value = input.value.replace(/[^0-9#+*]/g, '');
 }
+
+

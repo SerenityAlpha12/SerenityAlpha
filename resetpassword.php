@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+if (isset($_SESSION['user_id'])) {
+    header("Location: userdashboard.php");
+    exit();
+}
+
+
 require_once 'vendor/autoload.php';
 require 'db/config.php';
 
@@ -64,8 +72,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $mail->isSMTP(); // Set mailer to use SMTP
                     $mail->Host = 'smtp.gmail.com'; // Specify main and backup SMTP servers
                     $mail->SMTPAuth   = true;
-                    $mail->Username   = 'youurmama@gmail.com'; // Replace with your SMTP username
-                    $mail->Password   = 'yourmama'; // Replace with your SMTP password
+                    $mail->Username   = '@gmail.com'; // Replace with your SMTP username
+                    $mail->Password   = ''; // Replace with your SMTP password
                     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Enable TLS encryption, `ssl` also accepted
                     $mail->Port       = 587; // You may use 465 instead for 'ssl'
 

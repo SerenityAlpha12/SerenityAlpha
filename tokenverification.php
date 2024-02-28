@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+if (isset($_SESSION['user_id'])) {
+    header("Location: userdashboard.php");
+    exit();
+}
+
+
 require_once 'vendor/autoload.php';
 require 'db/config.php';
 
