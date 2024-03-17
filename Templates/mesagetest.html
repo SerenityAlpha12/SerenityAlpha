@@ -16,7 +16,7 @@
             <div class="card">
                 <!-- User Details -->
                 <div class="user-details">
-                    <img src="./Assets/Images/old man care 1.png" class="user-image" alt="" srcset="">
+                    <img src="{{ userImage }}" alt="User Image" class="user-image">
                     <div class="user-name">{{ userFirstName }} {{ userLastName }} </div>
                     <div class="user-age"> {{ userAge }} years old</div>
                     <div class="info-cards-container">
@@ -87,10 +87,10 @@
 
          <div class="chat-container">
             <div class="chat-header">Chat</div>
-            <div class="chat-messages" id="chatMessagesPerson1"></div>
+            <div class="chat-messages" id="chatMessagesPerson2"></div>
             <div class="message-input">
-                <input type="text" class="message-input" id="messageInputPerson1" placeholder="Person 1: Type your message...">
-                <button class="send-button" onclick="sendMessage('Person 1', 'messageInputPerson1', 'chatMessagesPerson1')">Send</button>
+                <input type="text" class="message-input" id="messageInputPerson2" placeholder="Person 2: Type your message...">
+                <button class="send-button" onclick="sendMessage('Person 2', 'messageInputPerson2', 'chatMessagesPerson2')">Send</button>
             </div>
         </div>
 
@@ -104,6 +104,10 @@
         <div class="box1" onclick="openModal()">
             <i class="fa-solid fa-clipboard-list"></i>
             <p>Schedules</p>
+        </div>
+        <div class="box2" onclick="openSettingsModal()">
+            <i class="fa-solid fa-gear"></i>
+            <p>Settings</p>
         </div>
     </div>
 
@@ -133,21 +137,19 @@
     </div>
 </div>
 
+<!-- Add this div at the end of your body section -->
 <div class="profile-modal-container">
     <div id="modal-profile" class="modal">
         <div class="modal-content profile-modal">
             <span class="close" onclick="closeProfileModal()">&times;</span>
-            <div class="tab">
-                <button class="tablinks" onclick="openTab(event, 'profile-tab')">Profile</button>
-                <button class="tablinks" onclick="openTab(event, 'settings-tab')">Settings</button>
-            </div>
-
-            <div id="profile-tab" class="tabcontent">
-                <h2>Edit Profile</h2>
+            <h2>Edit Profile</h2>
             <form id="profile-form" method="post" action="userdashboard.php" enctype="multipart/form-data"> <!-- Add form tag with method and action -->
                 <div class="profile-form">
                     <label for="user-image">Profile Image:</label>
                     <input type="file" id="cover_image" name="cover_image">
+
+                    
+                
                     <label for="user-first-name">First Name:</label> <!-- Changed ID to user-first-name -->
                     <input type="text" id="user-first-name" placeholder="Enter your first name" value="{{ userFirstName|e }}" readonly>
                   
@@ -166,47 +168,69 @@
                     <button type="submit">Save Changes</button> <!-- Added type attribute -->
                 </div>
             </form> <!-- Close form tag -->
-            </div>
-
-            <div id="settings-tab" class="tabcontent" style="display: none;">
-                <h2>Edit Settings</h2>
-                <form id="settings-form" method="post" action="newpassword.php">
-                    <div class="settings-form">
-    
-                        <label for="current-password">Current Password:</label>
-                        <input type="password" id="current-password" name="current-password" placeholder="Enter your current password">
-    
-                        <label for="user-password">New Password:</label>
-                        <input type="password" id="user-password" name="user-password" placeholder="Enter your new password">
-    
-                        <label for="confirm-password">Confirm Password:</label>
-                        <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your new password">
-                        <button type="submit">Save Changes</button>
-                    </div>
-                </form>
-            </div>
         </div>
     </div>
 </div>
 
-<script>
-    function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
 
-</script>
+<div class="settings-modal-container">
+    <div id="modal-settings" class="modal">
+        <div class="modal-content settings-modal">
+            <span class="close" onclick="closeSettingsModal()">&times;</span>
+            <h2>Account Settings</h2>
+            <form id="settings-form" method="post" action="userdashboard.php">
+                <div class="settings-form">
+                    <label for="user-email">Email:</label>
+                    <input type="email" id="user-email" name="user-email" placeholder="Enter your new email" value="{{ userEmail|e }}">
 
-<script src="./Storage/userscript.js" defer></script>
+                    <label for="user-phone">Phone Number:</label>
+                    <input type="tel" id="user-phone" name="user-phone" placeholder="Enter your new phone number" value="{{ userPhone|e }}">
+
+                    <label for="user-dob">Date of Birth:</label>
+                    <input type="date" id="user-dob" name="user-dob" value="{{ userDOB|e }}">
+
+                    <label for="current-password">Current Password:</label>
+                    <input type="password" id="current-password" name="current-password" placeholder="Enter your current password">
+
+                    <label for="user-password">New Password:</label>
+                    <input type="password" id="user-password" name="user-password" placeholder="Enter your new password">
+
+                    <label for="confirm-password">Confirm Password:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your new password">
+
+                    <label for="notification-preference">Notification Preference:</label>
+                    <select id="notification-preference" name="notification-preference">
+                        <option value="text">Text</option>
+                        <option value="email">Email</option>
+                    </select>
+
+                    <label for="language-preference">Language Preference:</label>
+                    <select id="language-preference" name="language-preference">
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                        <option value="de">German</option>
+                        <option value="it">Italian</option>
+                        <option value="ja">Japanese</option>
+                        <option value="ko">Korean</option>
+                        <option value="pt">Portuguese</option>
+                        <option value="ru">Russian</option>
+                        <option value="zh">Chinese</option>
+                    </select>
+                    
+
+                    <button type="submit">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    <script src="./Storage/userscript.js" defer></script>
 
     
 </body>

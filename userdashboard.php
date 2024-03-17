@@ -36,11 +36,27 @@ $userLastName = $_SESSION['user_last_name'];
 $userAge = $_SESSION['user_age'];
 $userWeight = $_SESSION['user_weight'];
 $userHeight = $_SESSION['user_height'];
+$userImage = $_SESSION['user_image'];
 
-// Fetch additional user data from the database if needed
 
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
+    if ($_FILES["cover_image"]["size"] > 0) {
+        $targetDirectory = "uploads/";
+        $targetFile = $targetDirectory . basename($_FILES["cover_image"]["name"]);
+
+        if (move_uploaded_file($_FILES["cover_image"]["tmp_name"], $targetFile)) {
+            // Set the variable to hold the file path or filename for database storage
+            $cover_image_path = $targetDirectory . basename($_FILES["cover_image"]["name"]);
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+            exit;
+        }
+    } else {
+        // If no new image uploaded, retain the existing cover image path
+        $cover_image_path = $_POST["existing_cover_image"]; // Assuming you have stored the existing cover image path in a hidden field
+    }
     // Update the user's height and weight in the session
     $_SESSION['user_weight'] = $_POST['user-weight'];
     $_SESSION['user_height'] = $_POST['user-height'];
@@ -64,11 +80,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
 
+
     // Redirect to the profile page
     header("Location: userdashboard.php");
     exit();
  }
 
+ 
 // Load and display the main template
 $template = $twig->load('userdashboard.html');
 echo $template->render([
@@ -77,5 +95,6 @@ echo $template->render([
     'userAge' => $userAge,
     'userHeight' => $userHeight,
     'userWeight' => $userWeight,
+    'userImage' => $userImage,
 ]);
 ?>

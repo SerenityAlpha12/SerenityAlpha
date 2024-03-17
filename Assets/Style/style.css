@@ -26,7 +26,6 @@ header {
 
 .navlinks {
     list-style: none;
-    margin-right: 100px;
 }
 
 .navlinks li {
@@ -51,6 +50,26 @@ button {
     cursor: pointer;
     transition: all 0.3s ease 0s;
     color: #ffffff;
+}
+
+a .loginbutton {
+  padding: 9px 25px;
+  background-color: transparent;
+  border: 1px solid #12706D;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  color: #12706D;
+}
+
+a .signupbutton {
+  padding: 9px 25px;
+  background-color: #12706D;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  color: #ffffff;
 }
 
 button:hover {
@@ -200,7 +219,7 @@ top: 210%;
     display: flex;
     flex-wrap: wrap;
     background-image: url(../Images/BG2.png);
-    height: 200vh;
+    height: 150vh;
     overflow-x: visible;
 }
 
@@ -216,7 +235,7 @@ top: 210%;
   border: 1px solid #ccc;
   padding: 10px;
   margin-bottom: 20px;
-  height: 800px;
+  height: 600px;
   width: 600px;
   background-color: #12706D;
   border-radius: 20px;
@@ -490,7 +509,7 @@ input[type="checkbox"]{
   border-radius: 20px;
   border: 1px solid #12706D;
   background-color: #81CAC8; 
-  opacity: 10%;
+  opacity: 70%;
   font-weight: bold; /* Add this line to increase the font weight */
   font-size: 20px;
   color: #12706D;
@@ -533,15 +552,7 @@ footer .copyright {
 }
 
 
-footer .message-icon {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  padding: 0 50px;
-  font-size: 90px;
-  color: #30ca30;
-  z-index: 999;
-}
+
 
 footer .container {
   margin-top: 8%;

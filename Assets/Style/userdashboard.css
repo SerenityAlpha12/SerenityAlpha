@@ -298,7 +298,7 @@ a {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 350px;
+    width: 400px;
     height: 420px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -360,15 +360,15 @@ a {
     justify-content: space-between;
     position: absolute;
     height: 420px;
-    width: 570px;
+    width: 500px;
     bottom: 20px;
-    right: 28%;
+    right: 33%;
 }
 
 .box {
     text-align: center;
     background-color: rgba(92, 167, 165, 0.8);
-    width: 400px;
+    width: 300px;
     height: 300px;
     margin: 20px;
     border-radius: 15px;
@@ -378,22 +378,13 @@ a {
 .box1 {
     text-align: center;
     background-color: rgba(92, 167, 165, 0.8);
-    width: 400px;
+    width: 300px;
     height: 300px;
     margin: 20px;
     border-radius: 15px;
     cursor: pointer;
 }
 
-.box2 {
-    text-align: center;
-    background-color: rgba(92, 167, 165, 0.8);
-    width: 400px;
-    height: 300px;
-    margin: 20px;
-    border-radius: 15px;
-    cursor: pointer;
-}
 
 .box i {
     font-size: 90px;
@@ -407,23 +398,12 @@ a {
     margin-top: 20px;
 }
 
-.box2 i {
-    font-size: 90px;
-    color: #12706D;
-    margin-top: 20px;
-}
-
 .box p {
     margin: 120px 0 0;
     color: #fff;
     font-size: 30px;
 }
 .box1 p {
-    margin: 120px 0 0;
-    color: #fff;
-    font-size: 30px;
-}
-.box2 p {
     margin: 120px 0 0;
     color: #fff;
     font-size: 30px;
@@ -533,19 +513,25 @@ a {
 
 /* Add this CSS to your userdashboard.css or create a new CSS file */
 
+
 .profile-modal-container #modal-profile {
     display: none;
 }
 
 .profile-modal-container .modal-content.profile-modal {
     max-width: 600px;
-    margin: 0 auto;
+    margin: auto; /* Center horizontally */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
     overflow: hidden;
     padding: 20px;
 }
+
 
 .profile-modal-container .close {
     color: #aaa;
@@ -582,7 +568,7 @@ a {
 }
 
 .profile-modal-container button {
-    background-color: #4caf50;
+    background-color: #81CAC8;
     color: #fff;
     padding: 10px;
     border: none;
@@ -597,12 +583,81 @@ a {
 
 
 
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+    padding-top: 20px;
+}
 
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
 
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
 
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
 
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+}
 
+/* Show the tab content */
+.tabcontent.show {
+    display: block;
+}
 
+.settings-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.settings-form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.settings-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.settings-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.settings-form button:hover {
+    background-color: #45a049;
+}
 
 
 

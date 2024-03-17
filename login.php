@@ -61,8 +61,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['user_first_name'] = $user['firstname'];
                 $_SESSION['user_last_name'] = $user['lastname'];
                 $_SESSION['user_age'] = $user['age']; // Assuming 'age' is the column name in your database
-                $_SESSION['user_weight'] = $user['weight']; // Assuming 'age' is the column name in your database
-                $_SESSION['user_height'] = $user['height']; // Assuming 'age' is the column name in your database
+                $_SESSION['user_weight'] = $user['weight']; // Assuming 'weight' is the column name in your database
+                $_SESSION['user_height'] = $user['height']; // Assuming 'height' is the column name in your database
+                $_SESSION['user_image'] = $user['image']; // Assuming 'image' is the column name in your database
 
 
                 // Set cookie if "Remember Me" is checked

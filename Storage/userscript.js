@@ -1,14 +1,16 @@
-function sendMessage() {
-    var messageInput = document.getElementById('messageInput');
-    var chatMessages = document.getElementById('chatMessages');
+function sendMessage(person, inputId, messagesId) {
+    var messageInput = document.getElementById(inputId);
+    var chatMessages = document.getElementById(messagesId);
 
     if (messageInput.value.trim() !== '') {
         var message = document.createElement('div');
-        message.textContent = messageInput.value;
+        message.textContent = person + ': ' + messageInput.value;
         message.className = 'sent-message';
         chatMessages.appendChild(message);
         messageInput.value = '';
     }
+
+    return false; // Prevent form submission
 }
 
 
@@ -124,8 +126,4 @@ function closeProfileModal() {
     document.getElementById("modal-profile").style.display = "none";
 }
 
-function updateProfile() {
-    // Add your logic here to update the profile information
-    // You can retrieve values from the input fields and send them to the server or update them locally
-    closeProfileModal(); // Close the modal after updating
-}
+
