@@ -2,38 +2,46 @@
 <html lang="en">
 
 <head>
+    <!-- Meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title -->
+    <title>Login Account</title>
+    <!-- External CSS -->
     <link rel="stylesheet" href="./Assets/Style/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <!-- Font Awesome Kit -->
     <script src="https://kit.fontawesome.com/7d399dc76b.js" crossorigin="anonymous"></script>
-    <title>Login Account</title>
 </head>
-
 <body>
     <div class="container">
+        <!-- Logo -->
         <div class="createaccount">
             <img src="./Assets/Images/logo.png" alt="">
         </div>
+        <!-- Login Form -->
         <div class="remaining">
             <form action="login.php" method="post">
                 <h1>Login <span>Account</span></h1>
 
+                <!-- Email Input -->
                 <div class="input-container">
                     <input type="email" id="email" name="email" value="{{ values['email'] ?? '' }}">
                     <label for="email">Email Address</label>
-                    <i id="password-lock" class="fa-solid fa-envelope"></i>
                     <div class="error">
                         <span class="error-message" id="error-email">{{ errors['email'] ?? '' }}</span>
                     </div>
                 </div>
+
+                <!-- Password Input -->
                 <div class="input-container">
                     <input type="password" id="password" name="password" class="password-input">
                     <label for="password">Password</label>
+                    <!-- Password Visibility Toggle -->
                     <div class="password-toggle" onclick="togglePasswordVisibility('password', 'toggle-password')">
                         <i id="toggle-password" class="fa-solid fa-eye-slash"></i>
                     </div>
-                    <i id="password-lock" class="fa-solid fa-lock"></i>
+                    <!-- Error Messages for Password -->
                     <div class="error">
                         <span class="error-message" id="error-password">{{ errors['login'] ?? '' }}</span>
                     </div>
@@ -42,26 +50,34 @@
                     </div>
                 </div>
 
+                <!-- Remember Me Checkbox -->
                 <div class="left">
                     <input type="checkbox" id="check" name="rememberMe">
                     <label for="check"> Remember Me</label>
                 </div>
-                
+
+                <!-- Login Button -->
                 <div class="input-container">
                     <button type="submit">Login</button>
                 </div>
+
+                <!-- Bottom Links -->
                 <div class="bottom">
-                    <div class="left">
+                    <div class="left1">
+                        <!-- Link to Sign Up -->
                         <label><a href="signup.php">Don't have an Account?<span>SignUp</span></a></label>
                     </div>
-                    <div class="right">
+                    <div class="right1">
+                        <!-- Link to Reset Password -->
                         <label><a href="resetpassword.php">Forgot password?<span>Reset</span></a></label>
                     </div>
                 </div>
             </form>
+            <!-- Explore Company Link -->
             <a href="index.php" class="explore-home">Explore Our Company? <span>Home</span></a>
         </div>
     </div>
+    <!-- JavaScript -->
     <script src="./Storage/script.js" defer></script>
 </body>
 

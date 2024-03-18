@@ -131,17 +131,6 @@ input:focus {
     color: #81CAC8;
 }
 
-#password-lock {
-    font-size: 20px;
-    color: #81CAC8;
-    margin-left: 10px;
-}
-
-#confirm-password-lock {
-    font-size: 20px;
-    color: #81CAC8;
-    margin-left: 10px;
-}
 
 button {
     margin-top: 10px;

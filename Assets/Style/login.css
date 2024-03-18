@@ -1,3 +1,4 @@
+/* Global Reset */
 body {
     margin: 0;
     padding: 0;
@@ -7,17 +8,20 @@ body {
     overflow-y: hidden;
 }
 
+/* Remove default link styling */
 a {
     text-decoration: none;
     cursor: pointer;
 }
 
+/* Main container */
 .container {
     position: relative;
     width: 100%;
     display: flex;
 }
 
+/* Side panel */
 .createaccount {
     background-color: #81CAC8;
     flex: 1;
@@ -25,18 +29,21 @@ a {
     justify-content: center;
     align-items: center;
     position: relative;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-radius: 5px;
 }
 
+.createaccount img {
+    max-width: 100%;
+    z-index: 1;
+    position: absolute;
+    top: 20%;
+    right: 57%;
+}
+
+/* Remaining content */
 .remaining {
     background-color: white;
-    border-top-left-radius: 50px;
-    border-bottom-left-radius: 50px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-radius: 50px 50px 5px 5px;
     height: 100%;
     width: 75%;
     position: absolute;
@@ -48,73 +55,59 @@ a {
     align-items: center;
 }
 
-.createaccount img {
-    max-width: 100%;
-    z-index: 1;
-    position: absolute;
-    top: 20%;
-    right: 57%;
-}
-
-
+/* Input container */
 .input-container {
     position: relative;
     margin-bottom: 35px;
     width: 100%;
 }
 
-/* Style for the email input */
+/* Input styles */
 .input-container input[type="email"],
 .input-container input[type="password"] {
-    width:500px; /* Adjust the width as needed */
+    width: 500px;
     padding: 15px;
     border: 1px solid #81CAC8;
     border-radius: 5px;
 }
 
-.left input[type="checkbox"] {
-    margin-right: 10px; /* Increased margin for better spacing */
-    width: 20px; /* Adjust the width as needed */
-    height: 15px; /* Adjust the height as needed */
-    margin-bottom: 10px;
-}
-
-
-/* Style for the label inside the input container */
+/* Label styles */
 .input-container label {
     position: absolute;
-    top: -10px; /* Adjust the position to move above the border line */
+    top: -10px;
     left: 10px;
-    background-color: white; /* Add white background color */
+    background-color: white;
     padding: 0 5px;
     color: #81CAC8;
     pointer-events: none;
     transition: 0.3s;
-    font-size: 14px; /* Adjust the font size as needed */
+    font-size: 14px;
 }
 
-/* Style for the label when the input is focused or not empty */
+/* Focus styles for inputs and labels */
 .input-container input:focus + label,
 .input-container input:not(:placeholder-shown) + label {
-    top: -10px; /* Adjust the position to move above the border line */
-    font-size: 20px; /* Adjust the font size as needed */
+    top: -10px;
+    font-size: 20px;
     color: #12706D;
 }
 
+/* Focus styles for inputs */
 input:focus {
-    outline: none; /* Remove the default focus outline */
-    border-color: #12706D; /* Set the desired focus color */
-    box-shadow: 0 0 5px #12706D; /* Optionally, add a box shadow for emphasis */
+    outline: none;
+    border-color: #12706D;
+    box-shadow: 0 0 5px #12706D;
 }
 
+/* Password input styles */
 .password-input {
-    width:500px; /* Adjust the width as needed */
+    width: 500px;
     padding: 15px;
     border: 1px solid #81CAC8;
     border-radius: 5px;
 }
 
-/* Style for the toggle icon */
+/* Toggle icon styles */
 .password-toggle {
     position: absolute;
     top: 50%;
@@ -128,12 +121,7 @@ input:focus {
     color: #81CAC8;
 }
 
-#password-lock {
-    font-size: 20px;
-    color: #81CAC8;
-    margin-left: 10px;
-}
-
+/* Button styles */
 button {
     padding: 10px 20px;
     background-color: #81CAC8;
@@ -146,6 +134,7 @@ button {
     width: 100%;
 }
 
+/* Explore company link styles */
 .explore-home {
     color: #12706D;
     font-size: 20px;
@@ -155,32 +144,38 @@ button {
 .explore-home span {
     color: rgba(83, 172, 172, 1);
 }
+
+/* Header styles */
 .remaining h1 {
     color: rgba(18, 112, 109, 1);
     font-size: 50px;
 }
+
 .remaining h1 span {
     color: rgba(83, 172, 172, 1);
 }
 
-.bottom{
+/* Bottom links styles */
+.bottom {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     font-size: 17px;
     margin-top: -20px;
 }
-.left{
+
+
+.left1, .right1 {
     display: flex;
-    font-size: 17px;
-    color: #12706D;
-    margin-top: -10px;
+    align-items: center; /* Align items vertically */
 }
-label a{
+
+label a {
     color: #12706D;
     text-decoration: none;
 }
 
+/* Error message styles */
 .error {
     position: absolute;
     top: 125%;
@@ -189,32 +184,28 @@ label a{
 }
 
 .error-message {
-    color: #ff0000; /* Red color for error messages */
-    font-size: 17px; /* Adjust font size as needed */
+    color: #ff0000;
+    font-size: 17px;
 }
 
-
+/* Media queries */
 @media (min-width: 1280px) {
     .container {
         max-width: 1500px;
-        margin: 0 auto; /* Center the content on larger screens */
+        margin: 0 auto;
     }
 
     .input-container {
-        width: 100%; /* Adjust the width as needed for larger screens */
+        width: 100%;
     }
 }
 
-/* Media query for screens larger than 768px (adjust the value as needed) */
 @media (max-width: 768px) {
     .container {
-        flex-direction: column; /* Stack elements vertically on smaller screens */
+        flex-direction: column;
     }
 
     .input-container {
-        width: 100%; /* Full width for smaller screens */
+        width: 100%;
     }
 }
-
-
-

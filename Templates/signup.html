@@ -21,7 +21,6 @@
                 <div class="input-container">
                     <input type="text" id="firstname" name="firstname" value="{{ values['firstname'] ?? '' }}">
                     <label for="firstname">First Name</label>
-                    <i id="password-lock" class="fa-solid fa-user"></i>
                     <div class="error">
                         <span class="error-message" id="error-firstname">{{ errors['firstname'] ?? '' }}</span>
                     </div>
@@ -30,7 +29,6 @@
                 <div class="input-container">
                     <input type="text" id="lastname" name="lastname" value="{{ values['lastname'] ?? '' }}">
                     <label for="lastname">Last Name</label>
-                    <i id="password-lock" class="fa-solid fa-user"></i>
                     <div class="error">
                         <span class="error-message" id="error-lastname">{{ errors['lastname'] ?? '' }}</span>
                     </div>
@@ -40,7 +38,6 @@
                     <input type="text" id="phonenumber" name="phonenumber" pattern="[0-9#+*]+" title="Only numbers and the characters +, *, # are allowed"
                         oninput="validatePhoneNumber(this)" value="{{ values['phonenumber'] ?? '' }}">
                     <label for="phonenumber">Phone Number</label>
-                    <i id="password-lock" class="fa-solid fa-phone"></i>
                     <div class="error">
                         <span class="error-message" id="error-phonenumber">{{ errors['phonenumber'] ?? '' }}</span>
                     </div>
@@ -50,7 +47,6 @@
                 <div class="input-container">
                     <input type="email" id="email" name="email" value="{{ values['email'] ?? '' }}">
                     <label for="email">Email Address</label>
-                    <i id="password-lock" class="fa-solid fa-envelope"></i>
                     <div class="error">
                         <span class="error-message" id="error-email">{{ errors['email'] ?? '' }}</span>
                     </div>
@@ -63,7 +59,6 @@
                     <div class="password-toggle" onclick="togglePasswordVisibility('password', 'toggle-password')">
                         <i id="toggle-password" class="fa-solid fa-eye-slash"></i>
                     </div>
-                    <i id="password-lock" class="fa-solid fa-lock"></i>
                 </div>
             
                 <!-- Confirm Password Field -->
@@ -73,7 +68,6 @@
                     <div class="password-toggle" onclick="togglePasswordVisibility('confirmpassword', 'toggle-confirm-password')">
                         <i id="toggle-confirm-password" class="fa-solid fa-eye-slash"></i>
                     </div>
-                    <i id="confirm-password-lock" class="fa-solid fa-lock"></i>
                     <div class="error-pw">
                         <span class="error-message" id="error-password">{{ errors['password'] ?? '' }}</span>
                     </div>

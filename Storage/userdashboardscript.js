@@ -1,3 +1,24 @@
+// Function to open the appointment modal
+function openAppointmentModal() {
+    var appointmentModal = document.getElementById("appointmentModal");
+    appointmentModal.style.display = "block";
+}
+
+
+// Function to close the appointment modal
+function closeAppointmentModal() {
+    var appointmentModal = document.getElementById("appointmentModal");
+    appointmentModal.style.display = "none";
+}
+
+// Function to submit appointment
+function submitAppointment() {
+    // Your code to handle submission...
+    closeAppointmentModal(); // Call closeAppointmentModal() after submission
+}
+
+
+
 function sendMessage(person, inputId, messagesId) {
     var messageInput = document.getElementById(inputId);
     var chatMessages = document.getElementById(messagesId);
@@ -13,12 +34,10 @@ function sendMessage(person, inputId, messagesId) {
     return false; // Prevent form submission
 }
 
-
-
 // JavaScript for the calendar
 const calendarDates = document.getElementById("calendar-dates");
 const currentMonthElement = document.getElementById("current-month");
-
+const appointmentButton = document.querySelector(".calendar-button");
 let currentDate = new Date();
 let currentMonth = currentDate.getMonth();
 let currentYear = currentDate.getFullYear();
@@ -66,8 +85,16 @@ function generateCalendar() {
 }
 
 function handleDateClick(day) {
-    // Add your logic for handling date clicks (e.g., displaying tasks)
-    console.log(`Clicked on ${day}-${currentMonth + 1}-${currentYear}`);
+    // Open the modal
+    openModal();
+
+    // Display the selected date in the modal
+    document.getElementById("selectedDate").textContent = `${day}-${currentMonth + 1}-${currentYear}`;
+}
+
+function handleAppointmentBooking() {
+    // Your logic to add an appointment to the current date
+    console.log("Appointment booked for:", currentDate);
 }
 
 function prevMonth() {
@@ -93,16 +120,11 @@ function updateCurrentDate() {
     generateCalendar();
 }
 
+// Add event listener to the appointment button
+appointmentButton.addEventListener("click", handleAppointmentBooking);
+
 // Initial calendar generation
 generateCalendar();
-
-function handleDateClick(day) {
-    // Open the modal
-    openModal();
-
-    // Display the selected date in the modal
-    document.getElementById("selectedDate").textContent = `${day}-${currentMonth + 1}-${currentYear}`;
-}
 
 
 
@@ -127,3 +149,28 @@ function closeProfileModal() {
 }
 
 
+// Function to open the appointment modal
+function openAppointmentModal() {
+    var appointmentModal = document.getElementById("appointmentModal");
+    appointmentModal.style.display = "block";
+}
+
+// Function to close the appointment modal
+function closeAppointmentModal() {
+    var appointmentModal = document.getElementById("appointmentModal");
+    appointmentModal.style.display = "none";
+}
+
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
