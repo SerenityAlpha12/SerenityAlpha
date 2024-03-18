@@ -164,6 +164,12 @@ button {
     margin-top: -20px;
 }
 
+.left {
+    display: flex;
+    font-size: 17px;
+    color: #12706D;
+    margin-bottom: 10px;
+}
 
 .left1, .right1 {
     display: flex;
