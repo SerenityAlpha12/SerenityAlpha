@@ -515,13 +515,9 @@ footer .col .social a i{
   color:#12706D;
   margin-top:2rem;
   margin-right: 5px;
-  transition: 0.3s ease;
   font-size: 30px;
 }
-footer .col .social a i:hover{
-  transform: scale(1.5);
-  filter:grayscale(25);
-}
+
 footer .col .links a{
   display: block;
   text-decoration: none;
@@ -542,36 +538,6 @@ footer .col .contact-details i{
   margin-right:15px;
 }
 
-.alert {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-color: #4CAF50;
-  color: white;
-  padding: 15px;
-  margin-top: 10px;
-  margin-right: 10px;
-  animation: slideIn 0.5s forwards, slideOut 0.5s forwards 4.5s; /* Slide in for 0.5s, then slide out after 4.5s */
-  display: none; /* Initially hidden */
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideOut {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(100%);
-  }
-}
 
 @media (min-width: 1280px) {
   .contain {
