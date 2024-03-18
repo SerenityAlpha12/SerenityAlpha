@@ -68,3 +68,23 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting
+
+    // Make AJAX request to submit the form data
+    var formData = new FormData(this);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'clientmessage.php', true);
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            document.getElementById('customAlert').innerHTML = '<p>Your message has been sent successfully.</p>';
+            document.getElementById('customAlert').style.display = 'block';
+        } else {
+            document.getElementById('customAlert').innerHTML = '<p>Message could not be sent. Please try again later.</p>';
+            document.getElementById('customAlert').style.display = 'block';
+        }
+    };
+    xhr.send(formData);
+});

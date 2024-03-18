@@ -12,6 +12,7 @@
 </head>
 
 <body>
+  <div class="contain">
   <header>
     <h1 class="logo">Serenity Haven</h1>
     <nav>
@@ -51,7 +52,7 @@
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide"><span>Lauren</span><br> 24/7 Exceptional caregivers and personalized support.</div>
-        <div class="swiper-slide"><span>Efe</span><br> Skilled, compassionate team. Serenity Alpha Made a real diffrence
+        <div class="swiper-slide"><span>Leo</span><br> Skilled, compassionate team. Serenity Alpha Made a real diffrence
         </div>
         <div class="swiper-slide"><span>Frank</span><br> Reliable, caring staff. Trust Serenity Alpha for exceptional
           service</div>
@@ -74,7 +75,8 @@
             independence.</p>
         </div>
         <div class="card-cta">
-          <button>Get in Touch</button>
+          <a href="#CareGivers" class="button">Get in Touch</a>
+
         </div>
       </div>
 
@@ -88,7 +90,8 @@
             personalized care.</p>
         </div>
         <div class="card-cta">
-          <button>Get in Touch</button>
+          <a href="#CareGivers" class="button">Get in Touch</a>
+
         </div>
       </div>
     </div>
@@ -102,7 +105,8 @@
           <p>Enhancing well-being through companionship, engaging activities, and mental health support.</p>
         </div>
         <div class="card-cta">
-          <button>Get in Touch</button>
+          <a href="#CareGivers" class="button">Get in Touch</a>
+
         </div>
       </div>
 
@@ -114,7 +118,7 @@
           <p>Tailored rehabilitation programs and physical therapy to promote mobility and overall health.</p>
         </div>
         <div class="card-cta">
-          <button>Get in Touch</button>
+          <a href="#CareGivers" class="button">Get in Touch</a>
         </div>
       </div>
     </div>
@@ -201,10 +205,9 @@
     </div>
   </section>
 
-
   <section id="CareGivers" class="getintouch">
     <h1>Get In Touch With Our Team Today!!!</h1>
-    <form action="#" method="post">
+    <form id="contactForm" action="clientmessage.php" method="post">
       <div class="form-group1">
         <div class="half-width">
           <label for="first-name">First Name</label>
@@ -215,28 +218,31 @@
           <input type="text" id="last-name" name="last-name" required>
         </div>
       </div>
-
+  
       <div class="form-group">
         <label for="email">Email</label>
         <input type="email" id="email" name="email" required>
       </div>
-
+  
       <div class="form-group">
         <label for="phone">Phone Number</label>
         <input type="tel" id="phone" name="phone" required>
       </div>
-
+  
       <div class="form-group">
         <label for="message">Message</label>
-        <textarea id="message" name="message" rows="10" required></textarea>
+        <textarea id="message" name="message" rows="8" required></textarea>
       </div>
-
-
+  
       <div class="form-group">
         <button type="submit">Submit</button>
       </div>
     </form>
+
+    <div id="customAlert" class="alert" style="display: none;"></div>
+
   </section>
+  
 
   <footer>
     <div class="container">
@@ -258,11 +264,15 @@
           <h3>Contact</h3>
           <div class="contact-details">
             <i class="fa fa-location"></i>
-            <p>FF-42, Procube Avenue, <br> NY, USA</p>
+            <p>1, Culwell Steet, <br> Wolverhampton, England,UK</p>
           </div>
           <div class="contact-details">
             <i class="fa fa-phone"></i>
             <p>+1-8755856858</p>
+          </div><br>
+          <div class="contact-details">
+            <i class="fa fa-envelope"></i>
+            <p>serenityalpha2024@gmail.com</p>
           </div>
         </div>
       </div>
@@ -272,11 +282,9 @@
       </div>
     </div>
   </footer>
-
-
-
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="./Storage/script.js"></script>
+  <script src="./Storage/scripts.js"></script>
 </body>
 
 </html>
