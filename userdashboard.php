@@ -41,7 +41,6 @@ $userImage = $_SESSION['user_image'];
 
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
     if ($_FILES["cover_image"]["size"] > 0) {
         $targetDirectory = "uploads/";
         $targetFile = $targetDirectory . basename($_FILES["cover_image"]["name"]);

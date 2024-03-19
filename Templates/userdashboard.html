@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- External Stylesheets -->
     <link rel="stylesheet" href="./Assets/Style/userdashboard.css">
+    <link rel="stylesheet" href="./Assets/Style/ran.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <!-- Font Awesome Script -->
     <script src="https://kit.fontawesome.com/7d399dc76b.js" crossorigin="anonymous"></script>
@@ -61,34 +62,71 @@
                 <div class="day">Sat</div>
             </div>
             <div class="calendar-dates" id="calendar-dates"></div>
-            <button class="calendar-button" onclick="openAppointmentModal()">Book A New Appointment</button>
+            <button class="calendar-button" onclick="openApptModal()">Book A New Appointment</button>
         </div>
 
-        <!-- Appointment Modal -->
-        <div id="appointmentModal" class="apptmodal">
-            <div class="modal-content">
-                <button onclick="closeAppointmentModal()">Close</button>
-                <h2>Book A New Appointment</h2>
-                <label for="appointment-date">Select Date:</label>
-                <input type="date" id="appointment-date" name="appointment-date">
-                <label for="appointment-time">Select Time:</label>
-                <input type="time" id="appointment-time" name="appointment-time">
-                <label for="appointment-reason">Reason for Appointment:</label>
-                <textarea id="appointment-reason" name="appointment-reason" rows="4" cols="50"></textarea>
-                <button onclick="submitAppointment()">Submit</button>
-            </div>
-        </div>
 
-        <!-- Schedule Modal -->
-        <div id="modal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <h2>Schedule for <span id="selectedDate"></span></h2>
-                <div id="scheduleContent">
-                    <!-- Appointments will be dynamically added here -->
+    <!-- Appointment Modal -->
+    <div id="appointmentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeApptModal()">&times;</span>
+            <h2>Create Appointment</h2>
+            <div id="alertMessage"></div> <!-- Alert message container -->
+            <div id="loadingScreen" style="display: none;" class="loader"></div> <!-- Loader div -->
+            <form id="appointmentForm" method="post" onsubmit="submitForm(event)">
+                <div>
+                    <label for="appointmentDate">Date:</label>
+                    <input type="date" id="appointmentDate" name="appointmentDate" required>
                 </div>
-            </div>
+                <div>
+                    <label for="appointmentTime">Time:</label>
+                    <select id="appointmentTime" name="appointmentTime" required>
+                        <option value="" disabled selected>Select Time</option>
+                        <option value="09:00AM">09:00 AM </option>
+                        <option value="09:45AM">09:45 AM</option>
+                        <option value="10:30AM">10:30 AM </option>
+                        <option value="11:15AM">11:15 AM </option>
+                        <option value="12:00PM">12:00 PM</option>
+                        <option value="12:45PM">12:45 PM </option>
+                        <option value="01:30PM">01:30 PM </option>
+                        <option value="02:15PM">02:15 PM</option>
+                        <option value="03:00PM">03:00 PM</option>
+                        <option value="03:45PM">03:45 PM </option>
+                        <option value="04:30PM">04:30 PM </option>
+                    </select>
+                </div>                
+                <div>
+                    <label for="reason">Reason:</label>
+                    <textarea id="reason" name="reason" rows="3" required></textarea>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
         </div>
+    </div>
+
+<!-- Schedule Modal -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Schedule for <span id="selectedDate"></span></h2>
+        <div class="scheduleContent" id="scheduleContent">
+            {% if appointments %}
+                <ul>
+                    {% for appointment in appointments %}
+                        <li>
+                            <strong>Date:</strong> {{ appointment.AppointmentDate }}<br>
+                            <strong>Time:</strong> {{ appointment.AppointmentTime }}<br>
+                            <strong>Reason:</strong> {{ appointment.Reason }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No appointments scheduled for this date.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
 
         <!-- Remaining Section -->
         <div class="remaining">
@@ -171,7 +209,7 @@
         </div>
     </div>
     <!-- External Script -->
-    <script src="./Storage/userdashboardscript.js" defer></script>
+    <script src="./Storage/userdashboardscript.js" defer></script>    
+    <script src="./Storage/userscripts.js" defer></script>    
 </body>
-
 </html>

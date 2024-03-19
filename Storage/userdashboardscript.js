@@ -1,24 +1,3 @@
-// Function to open the appointment modal
-function openAppointmentModal() {
-    var appointmentModal = document.getElementById("appointmentModal");
-    appointmentModal.style.display = "block";
-}
-
-
-// Function to close the appointment modal
-function closeAppointmentModal() {
-    var appointmentModal = document.getElementById("appointmentModal");
-    appointmentModal.style.display = "none";
-}
-
-// Function to submit appointment
-function submitAppointment() {
-    // Your code to handle submission...
-    closeAppointmentModal(); // Call closeAppointmentModal() after submission
-}
-
-
-
 function sendMessage(person, inputId, messagesId) {
     var messageInput = document.getElementById(inputId);
     var chatMessages = document.getElementById(messagesId);
@@ -131,8 +110,14 @@ generateCalendar();
 
 // Add these functions to your userscript.js
 function openModal() {
+    // Update selectedDate with the current date
+    const selectedDateElement = document.getElementById("selectedDate");
+    selectedDateElement.textContent = `${currentDate.getDate()}-${currentMonth + 1}-${currentYear}`;
+
+    // Display the modal
     document.getElementById("modal").style.display = "block";
 }
+
 
 function closeModal() {
     document.getElementById("modal").style.display = "none";
@@ -146,19 +131,6 @@ function openProfileModal() {
 
 function closeProfileModal() {
     document.getElementById("modal-profile").style.display = "none";
-}
-
-
-// Function to open the appointment modal
-function openAppointmentModal() {
-    var appointmentModal = document.getElementById("appointmentModal");
-    appointmentModal.style.display = "block";
-}
-
-// Function to close the appointment modal
-function closeAppointmentModal() {
-    var appointmentModal = document.getElementById("appointmentModal");
-    appointmentModal.style.display = "none";
 }
 
 function openTab(evt, tabName) {
