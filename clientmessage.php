@@ -4,6 +4,9 @@ use PHPMailer\PHPMailer\Exception;
 
 require 'vendor/autoload.php'; // Path to PHPMailer autoload file
 
+$loader = new \Twig\Loader\FilesystemLoader('Templates');
+$twig = new \Twig\Environment($loader);
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
     $firstName = $_POST['first-name'];
@@ -47,12 +50,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Body = $email_message;
 
         $mail->send();
-        echo "Your message has been sent successfully.";
+        $success_message = "Your message has been sent successfully.";
     } catch (Exception $e) {
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        $error_message = "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
-} else {
-    // If it's not a POST request, redirect or handle the situation accordingly
-    echo "Method not allowed.";
 }
+
+$template = $twig->load('index.html');
+echo $template->render([
+    'success_message' => $success_message ?? null,
+    'error_message' => $error_message ?? null
+]);
 ?>
