@@ -85,9 +85,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit();
  }
 
+
+$error_message = '';
+$success_message = '';
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $stmt = $conn->prepare("SELECT * FROM Appointments");
+    $stmt->execute();
+    $appointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    $error_message = "ERROR: Could not able to execute " . $e->getMessage();
+}
+
+
  
 // Load and display the main template
-$template = $twig->load('userdashboard.html');
+$template = $twig->load('dashboard.html');
 echo $template->render([
     'userFirstName' => $userFirstName,
     'userLastName' => $userLastName,
@@ -95,5 +111,8 @@ echo $template->render([
     'userHeight' => $userHeight,
     'userWeight' => $userWeight,
     'userImage' => $userImage,
+    'appointments' => $appointments, // Pass appointments data to the template
+    'error_message' => $error_message, // Pass error message to the template
+    'success_message' => $success_message // Pass success message to the template
 ]);
 ?>

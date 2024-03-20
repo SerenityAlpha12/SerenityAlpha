@@ -206,7 +206,7 @@
 
   <section id="CareGivers" class="getintouch">
     <h1>Get In Touch With Our Team Today!!!</h1>
-    <form id="contactForm" action="clientmessage.php" method="post" required>
+    <form id="contactForm" onsubmit="submitForm(event)" method="post" required>
       <div class="form-group1">
         <div class="half-width">
           <label for="first-name">First Name</label>
@@ -232,17 +232,11 @@
         <label for="message">Message</label>
         <textarea id="message" name="message" cols="30" rows="8" required></textarea>
       </div>
-  
+
       <div class="form-group">
         <button id="send" type="submit">Submit</button>
       </div>
-
-
-      {% if success_message %}
-      <div id="message" class="success">{{ success_message }}</div>
-  {% elseif error_message %}
-      <div id="message" class="error">{{ error_message }}</div>
-  {% endif %}
+      <div id="alertMessage"></div> <!-- Alert message container -->
   
     </form>
   </section>
@@ -288,17 +282,8 @@
     </div>
   </footer>
   </div>
-  <script>
-    // JavaScript to scroll to the message area
-    document.addEventListener("DOMContentLoaded", function(event) {
-      var messageElement = document.getElementById("message");
-      if (messageElement) {
-        messageElement.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    });
-  </script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="./Storage/scripts.js"></script>
+  <script src="./Storage/index.js"></script>
 </body>
-
 </html>

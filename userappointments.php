@@ -32,24 +32,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-// Retrieve appointments from the database
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    // Retrieve appointments for the selected date
-    $selectedDate = date('Y-m-d'); // Example: current date
-    $stmt = $conn->prepare("SELECT * FROM Appointments WHERE AppointmentDate = :selectedDate");
-    $stmt->bindParam(':selectedDate', $selectedDate);
-    $stmt->execute();
-    $appointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    $error_message = "ERROR: Could not able to execute " . $e->getMessage();
-}
 
 // Load and display the main template
-$template = $twig->load('userdashboard.html');
+$template = $twig->load('dashboard.html');
 echo $template->render([
-    'appointments' => $appointments // Pass appointments data to the template
+  
 ]);
 ?>
