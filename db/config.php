@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "dbalpha";
+$dbname = "serenity_alpha";
 
 
 try {

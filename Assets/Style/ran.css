@@ -23,6 +23,7 @@
 .modal-content h2 {
     text-align: center;
     font-size: 30px;
+    color: white;
 }
 
 .close {
@@ -39,63 +40,27 @@
     cursor: pointer;
 }
 
+/* Schedule content styles */
 #scheduleContent {
-    display: flex;
-    flex-direction: column;
+    margin-top: 20px;
+    background-color: #12706D;
+    border: 1px solid #81CAC8; /* Border */
+    padding: 10px; /* Padding */
+    border-radius: 5px; /* Border radius */
+    color: white;
 }
 
-.schedule-item {
-    border-bottom: 1px solid #ddd;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* List item styles */
+#scheduleContent ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-.schedule-card {
-    display: flex;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    overflow: hidden;
-    width: 500px;
-
-}
-
-.schedule-left {
-    width: 10%;
-    background: #ff5555; /* Red background color */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.schedule-left i {
-    color: #fff; /* Icon color */
-}
-
-.schedule-right {
-    width: 90%;
-    padding: 10px;
-}
-
-.appointment-time {
-    font-weight: bold;
-}
-
-
-.appointment-reason {
-    flex: 1;
-}
-
-.fa-solid.fa-ellipsis-vertical {
-    font-size: 30px;
-    color: #ff5555;
-    cursor: pointer;
-    margin-right: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#scheduleContent ul li {
+    margin-bottom: 10px; /* Add margin bottom for spacing between appointments */
+    padding: 10px; /* Add padding to each appointment entry */
+    border: 1px solid #81CAC8; /* Add border to separate appointment entries */
+    border-radius: 5px; /* Add border radius */
 }
 
 
