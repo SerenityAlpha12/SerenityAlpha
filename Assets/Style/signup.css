@@ -67,13 +67,19 @@ a {
 .input-container input[type="email"],
 .input-container input[type="password"],
 .input-container input[type="text"],
-.input-container input[type="phone"] {
+.input-container input[type="phone"]{
     width:500px; /* Adjust the width as needed */
     padding: 15px;
     border: 1px solid #81CAC8;
     border-radius: 5px;
 }
 
+.input-container input[type="number"] {
+    width:500px; /* Adjust the width as needed */
+    padding: 15px;
+    border: 1px solid #81CAC8;
+    border-radius: 5px;
+}
 .left input[type="checkbox"] {
     margin-right: 10px; /* Increased margin for better spacing */
     width: 20px; /* Adjust the width as needed */

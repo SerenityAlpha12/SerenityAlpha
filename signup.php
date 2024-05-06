@@ -33,6 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $lastname = $_POST["lastname"];
     $phonenumber = $_POST["phonenumber"];
     $email = $_POST["email"];
+    $age = $_POST["age"]; // Extract age from the form
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT); // Hashing the password
     $confirmPassword = $_POST["confirmpassword"];
 
@@ -45,6 +46,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($lastname)) {
         $errors['lastname'] = "Last Name is required.";
     }
+        // Validation for Age
+        $age = $_POST["age"];
+        if (empty($age)) {
+            $errors['age'] = "Age is required.";
+        } elseif (!is_numeric($age) || $age <= 0) {
+            $errors['age'] = "Please enter a valid age.";
+        }
 
        // Validation for Phone Number
        if (empty($phonenumber)) {
@@ -93,17 +101,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // If there are no errors, proceed with user insertion
     if (empty($errors)) {
         // SQL query to insert user data into the 'users' table
-        $sql = "INSERT INTO users (firstname, lastname, phonenumber, email, password) 
-                VALUES (:firstname, :lastname, :phonenumber, :email, :password)";
-
+        $sql = "INSERT INTO users (firstname, lastname, phonenumber, email, password, age) 
+                VALUES (:firstname, :lastname, :phonenumber, :email, :password, :age)";
+    
         $stmt = $conn->prepare($sql);
-
-        // Binding parameters
+    
+        // Binding parameters including age
         $stmt->bindParam(':firstname', $firstname);
         $stmt->bindParam(':lastname', $lastname);
         $stmt->bindParam(':phonenumber', $phonenumber);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', $password);
+        $stmt->bindParam(':age', $age); // Bind age parameter
+    
 
         // Execute the statement
         try {
@@ -132,6 +142,7 @@ echo $template->render([
         'lastname' => isset($lastname) ? $lastname : '',
         'phonenumber' => isset($phonenumber) ? $phonenumber : '',
         'email' => isset($email) ? $email : '',
+        'age' => isset($age) ? $age : '',
     ],
 ]);
 

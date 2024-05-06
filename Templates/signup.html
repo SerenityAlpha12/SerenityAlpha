@@ -52,6 +52,17 @@
                     </div>
                 </div>
             
+                <!-- Age Field -->
+                <div class="input-container">
+                    <input type="number" id="age" name="age" value="{{ values['age'] ?? '' }}">
+                    <label for="age">Age</label>
+                    <div class="error">
+                        <span class="error-message" id="error-age">{{ errors['age'] ?? '' }}</span>
+                    </div>
+                </div>
+
+
+
                 <!-- Password Field -->
                 <div class="input-container">
                     <input type="password" id="password" name="password" class="password-input">

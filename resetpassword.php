@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $mail->Host = 'smtp.gmail.com'; // Specify main and backup SMTP servers
                     $mail->SMTPAuth   = true;
                     $mail->Username   = 'serenityalpha2024@gmail.com'; // Replace with your SMTP username
-                    $mail->Password   = ''; // Replace with your SMTP password
+                    $mail->Password   = 'qrpjiunrqhrohvpj'; // Replace with your SMTP password
                     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Enable TLS encryption, `ssl` also accepted
                     $mail->Port       = 587; // You may use 465 instead for 'ssl'
 
@@ -105,7 +105,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // After setting the CSRF token in your PHP script
-$csrfToken = $_SESSION['csrf_token'];
+$csrfToken = bin2hex(random_bytes(32));
+$_SESSION['csrf_token'] = $csrfToken;
 
 // Load and display the main template
 $template = $twig->load('resetpassword.html');
